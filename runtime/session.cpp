@@ -198,8 +198,8 @@ int Session::start(Connection *connection, bool wait, const unsigned send_seqnum
 				_next_receive_seq = recv_seqnum;
 		}
 
-		send(generate_logon(_connection->get_hb_interval(), davi));
 		do_state_change(States::st_logon_sent);
+		send(generate_logon(_connection->get_hb_interval(), davi));
 	}
 	else
 	{
