@@ -483,7 +483,8 @@ public:
 			f8_scoped_lock guard(_start_mutex);
 			if (_started)
 			{
-				_msg_queue.try_push(0);
+				// GJ: This crash the program when stop
+				//_msg_queue.try_push(0);
 				if (_pmodel == pm_pipeline)
 					AsyncSocket::request_stop();
 			}
